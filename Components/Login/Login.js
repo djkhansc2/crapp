@@ -31,17 +31,6 @@ const Login = () => {
                     Submit
                 </button>
             </form>
-
-            <form onSubmit={(e)=> {verifyAccess(e)}}>
-                <p>User:</p>
-                <input name='user'/>
-                <p>Password:</p>
-                <input name='pass' type='password'/>
-                <br/>
-                <button type='submit'>
-                    Submit
-                </button>
-            </form>
         </>
     )
 }
