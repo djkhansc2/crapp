@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Login } from "../Login";
 import { Register } from "../Register";
+import { Dashboard } from "../Dashboard";
 import { Routes, Route, Link, useRoutes } from "react-router-dom";
 import { authContext } from "../../Context";
 
@@ -19,7 +20,11 @@ const App = () => {
     { path: "/register", element: <Register /> },
   ];
 
-  const PRIVATE_ROUTES = [{ path: "/dashboard" }];
+  // TODO: Change path '/register' to 'dashboard'
+  const PRIVATE_ROUTES = [
+    { path: "/", element: <Dashboard /> },
+    { path: "/register", element: <Dashboard /> },
+  ];
 
   useEffect(() => {
     if (authUser) {
@@ -40,7 +45,9 @@ const App = () => {
 
   return (
     <div className="app">
-      <authContext.Provider value={{ userData, setUserData }}>
+      <authContext.Provider
+        value={{ userData, setUserData, authUser, setAuthUser }}
+      >
         <AppRoutes />
       </authContext.Provider>
     </div>

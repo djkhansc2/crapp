@@ -5,21 +5,23 @@ import "./Login.css";
 
 const Login = () => {
   const { userData } = useContext(authContext);
+  const { setAuthUser } = useContext(authContext);
   const [accessFail, setAccessFail] = useState(false);
   const verifyAccess = (e) => {
     e.preventDefault();
     let username = e.target[0].value;
     let password = e.target[1].value;
-    if (username === '' || password == '') {
-        console.log('Empty fields');
-        setAccessFail(true);
-        return;
+    if (username === "" || password == "") {
+      console.log("Empty fields");
+      setAccessFail(true);
+      return;
     }
     if (userData.username !== username || userData.pass !== password) {
       setAccessFail(true);
       console.log("Invalid credentials");
       return;
     }
+    setAuthUser(true);
     console.log("Access granted!");
   };
 

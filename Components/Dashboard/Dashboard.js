@@ -1,5 +1,9 @@
 import React, { useState, useContext } from "react";
+import { authContext } from "../../Context";
 
 const Dashboard = () => {
-  return <p>Dashboard!</p>;
+  const { userData } = useContext(authContext);
+  return <p>Welcome to Dashboard, {userData.firstName}!</p>;
 };
+
+export default Dashboard;

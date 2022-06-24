@@ -5,6 +5,7 @@ import "./Register.css";
 
 const Register = () => {
   const { setUserData } = useContext(authContext);
+  const { setAuthUser } = useContext(authContext);
   const [userCredentials, setUserCredentials] = useState({
     firstName: "",
     lastName: "",
@@ -35,7 +36,7 @@ const Register = () => {
       username: e.target[2].value,
       pass: e.target[3].value,
     });
-    console.log(userCredentials);
+    setAuthUser(true);
   };
 
   return (
@@ -60,7 +61,8 @@ const Register = () => {
           </p>
         )}
         <br />
-        <button type="submit">Submit</button>
+        <button type="submit">
+        <Link to="/dashboard">.</Link>Submit</button>
       </form>
       <button>
         <Link to="/">Return</Link>
