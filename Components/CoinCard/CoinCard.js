@@ -7,9 +7,10 @@ const CoinCard = (props) => {
   let dolar = Intl.NumberFormat("en", { style: "currency", currency: "USD" });
 
   return (
-    <div className="card" style={{ width: "18rem" }}>
-      <div className="card">
+    <div className="card" style={{ width: "20rem", backgroundColor: "black" }}>
+      <div className="card" style={{ backgroundColor: "gray" }}>
         <img src={element.image.large} className="card-img-top" />
+        <hr />
         <div className="card-body">
           <h3 className="card-title">{element.name}</h3>
           <p className="card-text">
