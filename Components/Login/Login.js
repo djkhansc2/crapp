@@ -7,6 +7,7 @@ const Login = () => {
   const { userData } = useContext(authContext);
   const { setAuthUser } = useContext(authContext);
   const [accessFail, setAccessFail] = useState(false);
+
   const verifyAccess = (e) => {
     e.preventDefault();
     let username = e.target[0].value;
@@ -34,20 +35,21 @@ const Login = () => {
         }}
       >
         <p>Username:</p>
-        <input name="user" />
+        <input name="user" className="form-control"/>
         <p>Password:</p>
-        <input name="pass" type="password" />
+        <input name="pass" type="password" className="form-control"/>
         <br />
         <button
           type="submit"
-          style={{ backgroundColor: "green", borderRadius: "15%" }}
+          className="btn btn-primary"
         >
           Submit
         </button>
+        <button className="btn btn-secondary">
+            <Link to="/register">Register</Link>
+        </button>
       </form>
-      <nav style={{ fontSize: "30px" }}>
-        <Link to="/register">Register</Link>
-      </nav>
+    
       {accessFail && (
         <p style={{ color: "red", fontSize: "20px" }}>Invalid Credentials!</p>
       )}

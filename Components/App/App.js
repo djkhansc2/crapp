@@ -3,18 +3,19 @@ import "./App.css";
 import { Login } from "../Login";
 import { Register } from "../Register";
 import { Dashboard } from "../Dashboard";
-import { Routes, Route, Link, useRoutes } from "react-router-dom";
+import { Routes, Route, Link, useRoutes, useNavigate } from "react-router-dom";
 import { authContext } from "../../Context";
 
 const App = () => {
   const [routes, setRoutes] = useState([]);
   const [authUser, setAuthUser] = useState(false);
   const [userData, setUserData] = useState({
-    firstName: "",
-    lastName: "",
-    username: "",
-    pass: "",
+    firstName: "Lando",
+    lastName: "Lando",
+    username: "Lando",
+    pass: "12345",
   });
+  const history = useNavigate()
   const PUBLIC_ROUTES = [
     { path: "/", element: <Login /> },
     { path: "/register", element: <Register /> },
@@ -23,12 +24,13 @@ const App = () => {
   // TODO: Change path '/register' to 'dashboard'
   const PRIVATE_ROUTES = [
     { path: "/", element: <Dashboard /> },
-    { path: "/register", element: <Dashboard /> },
+    { path: "/dashboard", element: <Dashboard /> },
   ];
 
   useEffect(() => {
     if (authUser) {
       setRoutes(PRIVATE_ROUTES);
+      history('/dashboard')
     } else {
       setRoutes(PUBLIC_ROUTES);
     }

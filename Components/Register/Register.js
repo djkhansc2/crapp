@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../../Context";
 import "./Register.css";
+
 
 const Register = () => {
   const { setUserData } = useContext(authContext);
@@ -13,6 +14,8 @@ const Register = () => {
     pass: "",
   });
   const [invalidPass, setInvalidPass] = useState(false);
+  const history = useNavigate();
+
   const validateUserInfo = (e) => {
     e.preventDefault();
     // Prevent invalid characters (digits) in user information
@@ -36,7 +39,7 @@ const Register = () => {
       username: e.target[2].value,
       pass: e.target[3].value,
     });
-    setAuthUser(true);
+    history('/');
   };
 
   return (
