@@ -35,21 +35,19 @@ const Login = () => {
         }}
       >
         <p>Username:</p>
-        <input name="user" className="form-control"/>
+        <input name="user" className="form-control" />
         <p>Password:</p>
-        <input name="pass" type="password" className="form-control"/>
+        <input name="pass" type="password" className="form-control" />
         <br />
-        <button
-          type="submit"
-          className="btn btn-primary"
-        >
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
+        &nbsp; &nbsp;
         <button className="btn btn-secondary">
-            <Link to="/register">Register</Link>
+          <Link to="/register">Register</Link>
         </button>
       </form>
-    
+
       {accessFail && (
         <p style={{ color: "red", fontSize: "20px" }}>Invalid Credentials!</p>
       )}
